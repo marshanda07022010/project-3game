@@ -109,6 +109,8 @@ function totalSkor() {
 ========================= */
 
 async function simpanKeDatabase() {
+    const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    if (!isLocalhost) return false;
     console.log("🔥 FUNGSI SIMPAN MYSQL DIPANGGIL");
 
     if (
