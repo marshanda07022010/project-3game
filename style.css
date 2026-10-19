@@ -1,0 +1,434 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:'Segoe UI', Roboto, Arial, sans-serif;
+}
+body{
+  background:#ffffff;
+  color:#222;
+  line-height:1.6;
+}
+/* HEADER */
+header{
+  padding:25px 6%;
+  border-bottom:1px solid #eee;
+  background:linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+}
+header h1{
+  font-size:28px;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+header h1 span{font-size:32px;}
+header p{
+  color:#777;
+  font-size:15px;
+}
+/* NAVBAR */
+.navbar{
+  display:flex;
+  gap:10px;
+  padding:12px 6%;
+  border-bottom:1px solid #eee;
+  overflow-x:auto;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.nav-btn{
+  padding:10px 18px;
+  border:1px solid #eee;
+  background:#fff;
+  border-radius:25px;
+  cursor:pointer;
+  white-space:nowrap;
+  font-size:14px;
+  transition:all .3s ease;
+}
+.nav-btn:hover,
+.nav-btn.active{
+  background:#222;
+  color:#fff;
+  border-color:#222;
+  transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+/* MAIN */
+main{
+  width:88%;
+  max-width:1100px;
+  margin:25px auto;
+}
+.tab{
+  display:none;
+}
+.tab.active{
+  display:block;
+  animation: muncul .4s ease;
+}
+@keyframes muncul{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+/* CARD */
+.card{
+  background:#fff;
+  border:1px solid #f0f0f0;
+  border-radius:16px;
+  padding:25px;
+  margin-bottom:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.03);
+  transition:transform .3s ease;
+}
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(0,0,0,.05);
+}
+.card h2{
+  margin-bottom:8px;
+  font-size:24px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.card p{
+  color:#777;
+  font-size:15px;
+  margin-bottom:25px;
+}
+/* BERANDA */
+.welcome{
+  background:linear-gradient(120deg, #fff 0%, #fcfcfc 100%);
+  border:2px solid #f5f5f5;
+}
+.welcome h2{
+  font-size:26px;
+  margin-bottom:8px;
+}
+.welcome > p{
+  color:#888;
+  margin-bottom:25px;
+}
+.home-info{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin:25px 0;
+}
+.home-info > div{
+  border:2px solid #f5f5f5;
+  border-radius:14px;
+  padding:22px 15px;
+  text-align:center;
+  background:#fff;
+  transition:all .3s ease;
+}
+.home-info > div:hover{
+  border-color:#222;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
+  transform:scale(1.03);
+}
+.home-info span{
+  display:block;
+  font-size:14px;
+  color:#777;
+  margin-bottom:8px;
+}
+.home-info strong{
+  font-size:26px;
+  font-weight:700;
+}
+/* XP Bar */
+.xp-box{
+  margin-top:10px;
+  padding:20px;
+  background:#fafafa;
+  border-radius:12px;
+  border:1px solid #f0f0f0;
+}
+.xp-head{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+  font-size:14px;
+  font-weight:500;
+}
+.progress{
+  width:100%;
+  height:14px;
+  background:#eee;
+  border-radius:10px;
+  overflow:hidden;
+}
+.progress div{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg, #333 0%, #555 100%);
+  transition:width .5s ease;
+  border-radius:10px;
+}
+/* Pilih Permainan */
+.game-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
+  margin-top:15px;
+}
+.game-choice{
+  text-align:left;
+  padding:20px;
+  background:#fff;
+  border:2px solid #f0f0f0;
+  border-radius:14px;
+  cursor:pointer;
+  transition:all .3s ease;
+}
+.game-choice:hover{
+  border-color:#222;
+  background:#fafafa;
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+.game-choice strong{
+  display:block;
+  margin-bottom:6px;
+  font-size:17px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.game-choice span{
+  font-size:13px;
+  color:#777;
+  line-height:1.5;
+}
+/* GAME PANEL */
+.game-panel{
+  display:none;
+  border:1px solid #eee;
+  border-radius:16px;
+  padding:25px;
+  margin-top:20px;
+  background:#fff;
+}
+.game-panel.active{
+  display:block;
+  animation: muncul .4s ease;
+}
+.game-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+.game-stats{
+  display:flex;
+  gap:12px;
+  margin-bottom:20px;
+}
+.game-stats > div{
+  padding:10px 16px;
+  border:1px solid #eee;
+  border-radius:10px;
+  background:#fafafa;
+}
+.game-stats span{display:block;font-size:12px;color:#777;}
+/* BUTTON */
+button{
+  padding:11px 22px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:15px;
+  transition:all .3s ease;
+}
+button.primary{
+  background:#222;
+  color:#fff;
+}
+button.primary:hover{
+  background:#444;
+  transform:translateY(-1px);
+}
+button.secondary{
+  background:#f0f0f0;
+  color:#222;
+}
+button.secondary:hover{
+  background:#e0e0e0;
+}
+button.danger{
+  background:#fff;
+  color:#b00000;
+  border:1px solid #ffdddd;
+}
+button.danger:hover{
+  background:#fff5f5;
+}
+button:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+button.full{width:100%;}
+button.next-game{
+  background:transparent;
+  border:1px solid #eee;
+  color:#333;
+  margin-top:15px;
+}
+button.next-game:hover{
+  background:#f8f8f8;
+  border-color:#ccc;
+}
+/* FORM */
+label{
+  display:block;
+  font-size:14px;
+  font-weight:600;
+  margin:18px 0 6px;
+}
+input{
+  width:100%;
+  padding:13px;
+  border:2px solid #eee;
+  border-radius:10px;
+  font-size:15px;
+  outline:none;
+  transition:border-color .3s;
+}
+input:focus{border-color:#222;}
+/* PROFIL */
+.profile-summary .profile-row{
+  display:flex;
+  justify-content:space-between;
+  padding:12px 0;
+  border-bottom:1px solid #f5f5f5;
+}
+.danger-card{background:#fffafa;border-color:#ffeeee;}
+/* HITUNG CEPAT */
+#soalHitung{
+  font-size:36px;
+  font-weight:bold;
+  text-align:center;
+  padding:35px;
+  border:2px solid #f0f0f0;
+  border-radius:14px;
+  margin-bottom:15px;
+  background:#fcfcfc;
+}
+.message{min-height:24px;margin:12px 0;}
+/* BUAH */
+.fruit-area{
+  position:relative;
+  height:350px;
+  overflow:hidden;
+  border:2px solid #f0f0f0;
+  border-radius:14px;
+  background:#fafafa;
+  margin-bottom:15px;
+}
+.fruit{
+  position:absolute;
+  width:50px;
+  height:50px;
+  line-height:50px;
+  text-align:center;
+  font-size:28px;
+  border-radius:50%;
+  background:#fff;
+  cursor:pointer;
+  animation: buahNaik 4.2s linear forwards, buahGoyang .8s ease-in-out infinite alternate;
+  user-select:none;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.fruit.pop{
+  animation:buahPecah .25s ease forwards;
+  pointer-events:none;
+}
+@keyframes buahNaik{
+  from{transform:translateY(380px);}
+  to{transform:translateY(-70px);}
+}
+@keyframes buahGoyang{
+  from{margin-left:-3px;}
+  to{margin-left:3px;}
+}
+@keyframes buahPecah{
+  0%{transform:scale(1);opacity:1;}
+  100%{transform:scale(2);opacity:0;}
+}
+/* TIC TAC TOE */
+.tic-board{
+  width:260px;
+  max-width:100%;
+  margin:20px auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.cell{
+  aspect-ratio:1;
+  border:2px solid #eee;
+  background:#fff;
+  font-size:32px;
+  font-weight:bold;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  border-radius:10px;
+  transition:all .2s;
+}
+.cell:hover:not(:disabled){
+  background:#f8f8f8;
+  border-color:#ccc;
+}
+#statusTic{text-align:center;font-size:16px;}
+/* MISI */
+.mission{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  padding:18px;
+  border:2px solid #f0f0f0;
+  border-radius:12px;
+  margin-bottom:12px;
+  transition:all .3s;
+}
+.mission.done{
+  background:#f8fff8;
+  border-color:#d4f8d4;
+}
+.mission strong{font-size:16px;display:block;margin-bottom:3px;}
+.mission p{font-size:13px;color:#777;}
+.mission-status{font-weight:bold;white-space:nowrap;}
+/* PERINGKAT */
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px;}
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th,td{border:1px solid #f0f0f0;padding:10px 8px;text-align:center;}
+th{background:#fafafa;font-weight:600;}
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:25px;
+  margin-top:40px;
+  border-top:1px solid #eee;
+  color:#999;
+  font-size:13px;
+}
+/* RESPONSIVE */
+@media(max-width:750px){
+  main{width:94%;margin:15px auto;}
+  .home-info{grid-template-columns:repeat(3,1fr);gap:12px;}
+  .game-list{grid-template-columns:1fr;}
+  .fruit-area{height:300px;}
+}
+@media(max-width:480px){
+  .home-info{grid-template-columns:1fr;}
+  #soalHitung{font-size:26px;padding:25px;}
+  .navbar{justify-content:flex-start;}
+}

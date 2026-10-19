@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Center</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+    <div>
+        <h1><span>🎮</span> 3 Game</h1>
+        <p>Ayo bermain dan kumpulkan skor dan xp terbanyak mu</p>
+    </div>
+</header>
+<nav class="navbar">
+    <button class="nav-btn active" data-tab="beranda">Beranda</button>
+    <button class="nav-btn" data-tab="game">Game</button>
+    <button class="nav-btn" data-tab="misi">Misi</button>
+    <button class="nav-btn" data-tab="peringkat">Peringkat</button>
+    <button class="nav-btn" data-tab="profil">Profil</button>
+</nav>
+<main>
+<!-- BERANDA -->
+<section id="beranda" class="tab active">
+    <div class="card welcome">
+        <h2>WELCOME <span id="homeNama">PEMAIN BARU</span>! </h2>
+        <p>Selamat datang di 3 game,ayo bermain dan dapatkan skor dan xp terbanyak mu!</p>
+        
+        <div class="home-info">
+            <div>
+                <span>🎖️ Badge</span>
+                <strong id="homeBadge">Belum Diisi</strong>
+            </div>
+            <div>
+                <span>📊 Level</span>
+                <strong id="homeLevel">1</strong>
+            </div>
+            <div>
+                <span>💎 Total XP</span>
+                <strong id="homeXP">0</strong>
+            </div>
+        </div>
+        
+        <div class="xp-box">
+            <div class="xp-head">
+                <span>🚀 Progress Menuju Level Berikutnya</span>
+                <span id="homeTeksXP">0 / 300 XP</span>
+            </div>
+            <div class="progress">
+                <div id="homeProgressXP"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>🎯 Pilih Permainan</h2>
+        <p>Klik untuk langsung mulai bermain!</p>
+        <div class="game-list">
+            <button class="game-choice" data-open-game="hitung">
+                <strong>🧮 Hitung Cepat</strong>
+                <span>Jawab soal matematika secepat mungkin dalam 60 detik. Semakin cepat semakin banyak skor!</span>
+            </button>
+            <button class="game-choice" data-open-game="buah">
+                <strong>🍉 Penghancur Buah</strong>
+                <span>Klik buah yang naik ke atas. Setiap klik = +5 poin. Ayo hancurkan semuanya!</span>
+            </button>
+            <button class="game-choice" data-open-game="tic">
+                <strong>⭕ Tic Tac Toe</strong>
+                <span>Main silang-silang tiga melawan komputer. Menangkan satu pertandingan untuk menyelesaikan misi!</span>
+            </button>
+        </div>
+    </div>
+</section>
+<!-- GAME -->
+<section id="game" class="tab">
+    <div class="card">
+        <h2>📋 Daftar Permainan</h2>
+        <p>Pilih salah satu untuk memulai.</p>
+        <div class="game-list">
+            <button class="game-choice" data-open-game="hitung">
+                <strong>🧮 Hitung Cepat</strong>
+                <span>Jawab sebanyak mungkin dalam 60 detik.</span>
+            </button>
+            <button class="game-choice" data-open-game="buah">
+                <strong>🍉 Penghancur Buah</strong>
+                <span>Klik buah yang muncul untuk mendapatkan skor.</span>
+            </button>
+            <button class="game-choice" data-open-game="tic">
+                <strong>⭕ Tic Tac Toe</strong>
+                <span>Hadapi komputer di papan 3×3.</span>
+            </button>
+        </div>
+    </div>
+    <!-- HITUNG -->
+    <div id="panelHitung" class="game-panel card">
+        <div class="game-title">
+            <div>
+                <h2>🧮 Hitung Cepat</h2>
+                <p>Jawab dengan benar untuk mendapatkan skor.</p>
+            </div>
+        </div>
+        <div class="game-stats">
+            <div>
+                <span>⏱️ Waktu</span>
+                <strong><span id="waktuHitung">60</span> detik</strong>
+            </div>
+            <div>
+                <span>🏅 Skor</span>
+                <strong id="skorHitung">0</strong>
+            </div>
+        </div>
+        <div id="soalHitung">Tekan "Mulai Game"</div>
+        <input type="number" id="jawabanHitung" placeholder="Masukkan jawaban di sini...">
+        <button id="kirimJawaban" class="primary">Kirim Jawaban</button>
+        <button id="mulaiHitung" class="secondary">▶️ Mulai Game</button>
+        <p id="pesanHitung" class="message"></p>
+        <button class="next-game" data-open-game="buah">Lanjut ke Penghancur Buah →</button>
+    </div>
+    <!-- BUAH -->
+    <div id="panelBuah" class="game-panel card">
+        <div class="game-title">
+            <div>
+                <h2>🍉 Penghancur Buah</h2>
+                <p>Klik buah yang bergerak naik untuk mendapatkan poin.</p>
+            </div>
+        </div>
+        <div class="game-stats">
+            <div>
+                <span>⏱️ Waktu</span>
+                <strong><span id="waktuBuah">60</span> detik</strong>
+            </div>
+            <div>
+                <span>🏅 Skor</span>
+                <strong id="skorBuah">0</strong>
+            </div>
+        </div>
+        <div id="fruitArea" class="fruit-area"></div>
+        <button id="mulaiBuah" class="primary">▶️ Mulai Game</button>
+        <button class="next-game" data-open-game="tic">Lanjut ke Tic Tac Toe →</button>
+    </div>
+    <!-- TIC TAC TOE -->
+    <div id="panelTic" class="game-panel card">
+        <div class="game-title">
+            <div>
+                <h2>⭕ Tic Tac Toe</h2>
+                <p>Kamu = ❌ | Komputer = ⭕</p>
+            </div>
+        </div>
+        <p id="statusTic" class="message">Tekan mulai untuk bermain.</p>
+        <div class="tic-board">
+            <button class="cell" data-index="0"></button>
+            <button class="cell" data-index="1"></button>
+            <button class="cell" data-index="2"></button>
+            <button class="cell" data-index="3"></button>
+            <button class="cell" data-index="4"></button>
+            <button class="cell" data-index="5"></button>
+            <button class="cell" data-index="6"></button>
+            <button class="cell" data-index="7"></button>
+            <button class="cell" data-index="8"></button>
+        </div>
+        <button id="mulaiTic" class="primary">▶️ Mulai Game</button>
+        <button class="next-game" data-open-game="hitung">Kembali ke Hitung Cepat →</button>
+    </div>
+</section>
+<!-- MISI -->
+<section id="misi" class="tab">
+    <div class="card">
+        <h2>📋 Misi Harian</h2>
+        <p>Selesaikan misi untuk mendapatkan poin XP tambahan secara gratis!</p>
+        <div id="daftarMisi"></div>
+    </div>
+</section>
+<!-- PERINGKAT -->
+<section id="peringkat" class="tab">
+    <div class="card">
+        <div class="section-head">
+            <div>
+                <h2>🏆 Papan Peringkat</h2>
+                <p>Siapa yang memiliki skor tertinggi?</p>
+            </div>
+            <button id="hapusPeringkat" class="danger">Hapus Peringkat</button>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Badge</th>
+                        <th>Level</th>
+                        <th>Hitung</th>
+                        <th>Buah</th>
+                        <th>Tic</th>
+                        <th>skor</th>
+                        <th>XP</th>
+                    </tr>
+                </thead>
+                <tbody id="isiPeringkat"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<!-- PROFIL -->
+<section id="profil" class="tab">
+    <div class="card">
+        <h2>👤 Profil Pemain</h2>
+        <label>Nama Lengkap</label>
+        <input type="text" id="namaPemain" placeholder="Masukkan nama kamu">
+        <label>Nomor Badge / ID</label>
+        <input type="text" id="badgePemain" placeholder="Contoh: 001122">
+        <button id="simpanProfil" class="primary">💾 Simpan Data</button>
+    </div>
+    <div class="card profile-summary">
+        <h2>📊 Ringkasan Data</h2>
+        <div class="profile-row">
+            <span>Nama</span>
+            <strong id="tampilNama">Pemain Baru</strong>
+        </div>
+        <div class="profile-row">
+            <span>Badge / ID</span>
+            <strong id="tampilBadge">Belum Diisi</strong>
+        </div>
+        <div class="profile-row">
+            <span>Level</span>
+            <strong id="tampilLevel">1</strong>
+        </div>
+        <div class="profile-row">
+            <span>Total XP</span>
+            <strong id="tampilXP">0</strong>
+        </div>
+        <div class="xp-box">
+            <div class="xp-head">
+                <span>Progress Level</span>
+                <span id="teksXP">0 / 300 XP</span>
+            </div>
+            <div class="progress">
+                <div id="progressXP"></div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <h2>📈 Rekor Skor</h2>
+        <div class="home-info">
+            <div>
+                <span>🧮 Hitung Cepat</span>
+                <strong id="skorHitungProfil">0</strong>
+            </div>
+            <div>
+                <span>🍉 Penghancur Buah</span>
+                <strong id="skorBuahProfil">0</strong>
+            </div>
+            <div>
+                <span>⭕ Tic Tac Toe</span>
+                <strong id="skorTicProfil">0</strong>
+            </div>
+        </div>
+    </div>
+    <div class="card danger-card">
+        <h2>⚠️ Pengaturan Data</h2>
+        <p>Menghapus data akan mengembalikan semua ke awal. Hati-hati!</p>
+        <button id="hapusSemua" class="danger full">🗑️ Hapus Semua Data</button>
+    </div>
+</section>
+</main>
+<footer>
+    <p>🎮 3 GAME</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
