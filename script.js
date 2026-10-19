@@ -1,3 +1,5 @@
+// Cek apakah game dibuka di Laptop (XAMPP) atau di HP (GitHub Pages)
+const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
 const KEY = "gameCenterWhiteV2";
 const BOARD_KEY = "gameCenterScoresWhiteV2";
 
@@ -447,19 +449,13 @@ document.getElementById(
         render();
         perbaruiPapan();
 
-        // Kirim ke MySQL
-        const berhasil =
-            await simpanKeDatabase();
-
-        if (berhasil) {
-
-            alert(
-                "✅ Data berhasil disimpan ke MySQL!"
-            );
-        }
+        // Kirim ke MySQL (HANYA JIKA DIBUKA DI LAPTOP / LOCALHOST)
+if (isLocalhost) {
+    const berhasil = await simpanKeDatabase();
+    if (berhasil) {
+        alert(" Data berhasil disimpan ke MySQL!");
     }
-);
-
+}
 
 /* =========================
    MISI HARIAN
